@@ -8,13 +8,23 @@ The Elastic search is deployed with 3 replicas and a minimumMasternodes value of
 
 ## INSTALLATION GUIDE
 To make installation easy, each component of the elastic stack has a folder that holds the values.yaml file. You can make any further changes to the installation by editing the the values.yaml
-### Install all components
+### Install the entire elastic stack
 
 * Make install.sh executable by running ``` chmod +x install.sh ```
-* type the below command to install the entire componenents (Elasticsearch & Kibana) ```./install.sh ```
-
+* type the below command to install the entire componenents (Elasticsearch & Kibana) 
+        ```./install.sh ```
+* use ``` kubectl get pods -w ``` to confirm pods creation
 ### Install a specific component
 
 * Make sure install.sh executable by running ``` chmod +x install.sh ```
-* type the below command to install the entire componenents (Elasticsearch or Kibana) ```./install.sh  kibana```
+* type the below command to install the entire componenents (Elasticsearch or Kibana) 
+        ```./install.sh  kibana```
 
+## UNISTALLATION
+Use the ```uninstall.sh``` file to uninstall one or all the elastic stack components.
+### Uninstall a single component
+* type the below command to uninstall the entire componenents (Elasticsearch or Kibana) 
+        ```./uninstall.sh  kibana```
+### Uninstall the entire elastic stack
+* type the below command to install the entire componenents (Elasticsearch & Kibana) 
+        ```./install.sh ```

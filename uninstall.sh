@@ -1,7 +1,6 @@
 #!/bin/bash
 
 NS=monitoring
-VERSION=7.16
 #Install only Elasticsearch and Kibana
 COMPONENTS=("elasticsearch" "kibana" "apm-server")
 
@@ -12,7 +11,7 @@ then
     for item in ${STACK}
     do
         item=${item%/}
-        helm upgrade ${item} --install  --namespace ${NS} --version ${VERSION} -f ${item}/values.yaml elastic/${item}
+        helm uninstall ${item}   --namespace ${NS}
         echo "Installed ${item}"
     done
 # Install a single component
@@ -22,8 +21,8 @@ then
     NAME=$1
     if [[ " ${COMPONENTS[@]} " =~ " ${NAME} " ]]; 
     then
-        helm upgrade ${NAME} --install  --namespace ${NS} --version ${VERSION} -f ${NAME}/values.yaml elastic/${NAME}
-        echo Installed ${NAME}
+        helm uninstall ${NAME}  --namespace ${NS}
+        echo Uninstalled ${NAME}
     else
         echo "false ${NAME}"
         echo "Error!  Please confirm the parameter you passed in"
