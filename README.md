@@ -3,7 +3,7 @@
 ## DEPLOYMENT
 The installation is done on the monitoring namespace. you can create the namespace by running ```kubectl create ns monitoring``` if it doesn't exist already. You can also change the namespace by editing the NS variable in the ```install.sh``` file
 
-The Deployment is done using the  [Named Link] (https://github.com/elastic/helm-charts "Elastic official helm chart"). Customization is achived by modifying the values.yaml file that in the respective folder for reach component. 
+The Deployment is done using the Elastic official helm chart -  https://github.com/elastic/helm-charts. Customization is achived by modifying the values.yaml file that in the respective folder for reach component. 
 The Elastic search is deployed with 3 replicas and a minimumMasternodes value of 2 to ensure the system keeps running even when a node goes down. 
 
 ## INSTALLATION GUIDE
