@@ -2,8 +2,10 @@
 
 NS=monitoring
 NAME=$1
-VERSION=7.7.1
-COMPONENTS=("elasticsearch" "kibana" "metricbeat" "logstash")
+VERSION=7.16
+#Install only Elasticsearch and Kibana
+COMPONENTS=("elasticsearch" "kibana" "logstash" "metricbeat")
+
 if [[ $# -lt 1 || $# == "-h" ]]
 then
     # Loop through all the components to be installed
@@ -14,6 +16,8 @@ then
         helm upgrade ${item} --install  --namespace ${NS} --version ${VERSION} -f ${item}/values.yaml elastic/${item}
         echo "Installed ${item}"
     done
+# Install a single component
+
 elif [[ $# == 1 ]]
 then
     NAME=$1
@@ -25,14 +29,8 @@ then
         echo "false ${NAME}"
         echo "Error!  Please confirm the parameter you passed in"
     fi
-   
-   
 
 else
     echo "you can only provide 0 or 1 parameter"
 fi
-
-# Add the Elastic helm chart repository
-# helm repo add elastic https://helm.elastic.co
-# Verify the values files are updated and install the Elastic Search Statefulset
 
