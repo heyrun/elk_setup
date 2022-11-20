@@ -8,6 +8,7 @@ The Elastic search is deployed with 3 replicas and a minimumMasternodes value of
 
 ## INSTALLATION GUIDE
 To make installation easy, each component of the elastic stack has a folder that holds the values.yaml file. You can make any further changes to the installation by editing the the values.yaml
+
 ### Install the entire elastic stack
 
 * Make install.sh executable by running ``` chmod +x install.sh ```
